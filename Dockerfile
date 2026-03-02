@@ -1,7 +1,7 @@
 FROM debian:12.8 AS base
 
 LABEL maintainers=""
-LABEL org.opencontainers.image.source=https://github.com/CanastaWiki/CanastaBase
+LABEL org.opencontainers.image.source=https://github.com/Andeandes/CanastaBase
 
 ENV MW_VERSION=REL1_43 \
 	MW_CORE_VERSION=1.43.6 \
@@ -26,6 +26,7 @@ RUN set x; \
 	&& apt-get install -y --no-install-recommends aptitude \
 	&& aptitude -y upgrade \
 	&& aptitude install -y --without-recommends \
+	pandoc \
 	git \
 	inotify-tools \
 	apache2 \
@@ -36,8 +37,12 @@ RUN set x; \
 	wget \
 	lsb-release \
 	imagemagick  \
+	libmagickcore-dev \
+	libmagickwand-dev \
 	librsvg2-bin \
 	python3-pygments \
+	python3-requests \
+	python3-pip \
 	patch \
 	vim \
 	mc \
@@ -67,6 +72,8 @@ RUN set x; \
 	php-ldap \
 	php-bcmath \
 	php-luasandbox \
+	php-pear \
+	php-dev \
 	libapache2-mod-fcgid \
 	&& aptitude clean \
 	&& rm -rf /var/lib/apt/lists/*
