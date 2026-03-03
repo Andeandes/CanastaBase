@@ -74,7 +74,12 @@ RUN set x; \
 	php-luasandbox \
 	php-pear \
 	php-dev \
+	make \
 	libapache2-mod-fcgid \
+	&& pip install --break-system-packages --no-cache-dir pdf2docx \
+	&& pecl install channel://pecl.php.net/imagick-3.7.0 \
+	&& echo "extension=imagick.so" > /etc/php/8.2/mods-available/imagick.ini \
+	&& phpenmod imagick \
 	&& aptitude clean \
 	&& rm -rf /var/lib/apt/lists/*
 
