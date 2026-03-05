@@ -17,7 +17,7 @@ on:
   pull_request:
 
 env:
-  IMAGE_NAME: canasta-base
+  IMAGE_NAME: canastabase
 
 jobs:
   # Test the image Dockerfile syntax using https://github.com/replicatedhq/dockerfilelint
